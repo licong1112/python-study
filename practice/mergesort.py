@@ -5,20 +5,30 @@ def mergesort(array):
     array_length = len(array)
     mid = array_length / 2
     
-    left = mergesort(array[0:mid])
-    right = mergesort(array[mid:len(array)])
+    left = mergesort(array[:mid])
+    right = mergesort(array[mid:array_length])
+
+    left_length = len(left)
+    right_length = len(right)
+
+    left_ind = 0
+    right_ind = 0
 
     merged_result = []
-    while len(left) > 0 or len(right) > 0:
-        if len(left) > 0 and len(right) > 0:
-            if left[0] < right[0]:
-                merged_result.append(left.pop(0))
+    while left_ind < left_length or right_ind < right_length:
+        if left_ind < left_length and right_ind < right_length:
+            if left[left_ind] < right[right_ind]:
+                merged_result.append(left[left_ind])
+                left_ind += 1
             else:
-                merged_result.append(right.pop(0))
-        elif len(left) > 0:
-            merged_result.append(left.pop(0))
+                merged_result.append(right[right_ind])
+                right_ind += 1
+        elif left_ind < left_length:
+            merged_result.append(left[left_ind])
+            left_ind += 1
         else:
-            merged_result.append(right.pop(0))
+            merged_result.append(right[right_ind])
+            right_ind += 1
 
     return merged_result
 
