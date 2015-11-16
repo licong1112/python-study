@@ -3,7 +3,7 @@ def reverse(x):
     :type x: int
     :rtype: int
 
-    This is not an ideal solution. I intentially wrote it like this in order 
+    This is not an ideal solution. I intentionally wrote it like this in order 
     to get familiar with Python built-in functions.
     """
     is_negative = False
