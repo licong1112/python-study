@@ -9,7 +9,7 @@ def isValidIndex(strs, index):
 
 def isValidChar(strs, index):
     """
-    isValidIndex(strs, index) == True.
+    Assumes isValidIndex(strs, index) == True.
     """
     c = strs[0][index]
     for s in strs[1:]:
