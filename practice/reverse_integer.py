@@ -6,23 +6,17 @@ def reverse(x):
     This is not an ideal solution. I intentionally wrote it like this in order 
     to get familiar with Python built-in functions.
     """
-    is_negative = False
-    if x < 0:
-        is_negative = True
-        x = -x
+    is_negative = x < 0
+    x = abs(x)
 
     x_str = str(x)
-    x_reverse_str = [''] * len(x_str)
+    x_reverse_str = x_str[: : -1]
 
-    for i in range(len(x_str)):
-        x_reverse_str[i-1] = x_str[-i]
-
-    result_str = ''.join(x_reverse_str)
     if is_negative:
-        result = int(result_str) * (-1)
+        result = int(x_reverse_str) * (-1)
         return 0 if result < -(2 ** 31) else result
 
-    result = int(result_str)
+    result = int(x_reverse_str)
     return 0 if result > (2 ** 31 - 1) else result
     
 
