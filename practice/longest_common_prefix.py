@@ -28,12 +28,9 @@ def longestCommonPrefix(strs):
         return result;
 
     index = 0
-    while isValidIndex(strs, index):
-        if isValidChar(strs, index):
-            result += strs[0][index]
-            index += 1
-        else:
-            return result
+    while isValidIndex(strs, index) and isValidChar(strs, index):
+        result += strs[0][index]
+        index += 1
 
     return result
 
