@@ -1,20 +1,21 @@
 class ListNode(object):
+
     def __init__(self, x):
         self.val = x
         self.next = None
 
 
-def printList(head):
-    vals = []
+def print_list(head):
     runner = head
-    while runner != None:
-        vals.append(runner.val)
+    while runner is not None:
+        print runner.val,
         runner = runner.next
 
-    print(vals)
 
+def to_node_list(val_list):
+    if not val_list:
+        return None
 
-def toNodeList(val_list):
     head = ListNode(val_list[0])
     runner = head
     for val in val_list[1:]:
@@ -25,7 +26,7 @@ def toNodeList(val_list):
     return head
 
 
-def removeNthFromEnd(head, n):
+def remove_nth_from_end(head, n):
     """
     :type head: ListNode
     :type n: int
@@ -60,8 +61,5 @@ def removeNthFromEnd(head, n):
 if __name__ == "__main__":
     input_vals = map(int, raw_input().split())
     n = int(raw_input())
-    result = removeNthFromEnd(toNodeList(input_vals), n)
-    printList(result)
-    
-
-
+    result = remove_nth_from_end(to_node_list(input_vals), n)
+    print_list(result)

@@ -3,7 +3,7 @@ def isValidIndex(strs, index):
     Returns True if all strings in *strs* have character at position *index*.
     """
     for s in strs:
-        if (not s) or (index >= len(s)):
+        if not s or index >= len(s):
             return False
     return True
 
@@ -23,16 +23,16 @@ def longestCommonPrefix(strs):
     :type strs: List[str]
     :rtype: str
     """
-    result = ""
+    result = []
     if not strs:
-        return result;
+        return '';
 
     index = 0
     while isValidIndex(strs, index) and isValidChar(strs, index):
-        result += strs[0][index]
+        result.append(strs[0][index])
         index += 1
 
-    return result
+    return ''.join(result)
 
     
 
